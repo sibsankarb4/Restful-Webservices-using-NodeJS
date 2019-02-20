@@ -28,3 +28,23 @@ app.get('/testInputParam/:id', function (req, res, next) {
     var id = req.params.id;
     console.log('The id: ' + id);
 });
+
+// POST method route
+app.post('/', function (req, res) {
+  res.send('POST request to the homepage')
+})
+
+app.all('/secret', function (req, res, next) {
+  console.log('Accessing the secret section ...')
+  next() // pass control to the next handler
+})
+
+// assuming POST: name=foo&color=red            <-- URL encoding
+//
+// or       POST: {"name":"foo","color":"red"}  <-- JSON encoding
+
+app.post('/test-page', function(req, res) {
+    var name = req.body.name,
+        color = req.body.color;
+    // ...
+});

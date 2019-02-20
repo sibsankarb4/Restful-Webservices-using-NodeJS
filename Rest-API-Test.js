@@ -22,3 +22,9 @@ app.get("/testTwo", (req, res, next) => {
  console.log("In testTwo :: Server running on port 8080");
  res.json(["Sibsankar","Bera"]);
 });
+
+# with input request parameter
+app.get('/testInputParam/:id', function (req, res, next) {
+    var id = req.params.id;
+    console.log('The id: ' + id);
+});
